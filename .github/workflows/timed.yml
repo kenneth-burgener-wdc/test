@@ -5,6 +5,8 @@ name: ScheduleCI
 # Controls when the workflow will run
 on:
   # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  # Scehduled run
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 * * * *'
