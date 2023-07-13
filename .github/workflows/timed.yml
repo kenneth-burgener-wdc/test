@@ -7,7 +7,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '30 5,17 * * *'
+    - cron:  '30 * * * *'
 
 jobs:
   # This workflow contains a single job called "build"
