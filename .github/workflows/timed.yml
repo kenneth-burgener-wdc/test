@@ -10,6 +10,7 @@ on:
   # Scehduled run
   schedule:
     # * is a special character in YAML so you have to quote this string
+    # Runs at 30 minutes past the hour, every hour
     - cron:  '30 * * * *'
 
 jobs:
