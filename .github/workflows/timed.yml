@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: ScheduleCI
+name: ScheduleCIBranch
 run-name: Hello ${{ github.actor }}
 
 # Controls when the workflow will run
@@ -10,7 +10,7 @@ on:
   # Scehduled run
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '30 * * * *'
+    - cron:  '*/6 * * * *'
 
 jobs:
   # This workflow contains a single job called "build"
