@@ -1,5 +1,15 @@
-name: ScheduleName
-run-name: Hello ${{ github.actor }} - ${{ github.event.schedule == '55 * * * *' && 'ABC' || github.event.schedule == '31 * * * *' && 'DEF' || github.event.schedule == '32 * * * *' && 'GH' || github.event.schedule == '33 * * * *' && 'IJ' || github.event.schedule == '35 * * * *' && 'LM' || github.event.schedule == '36 * * * *' && 'MM' || github.event.schedule == '30 * * * *' && 'LAST' }}  
+name: ScheduleName2
+run-name: >
+ Hello ${{ github.actor }} -
+ ${{
+ github.event.schedule == '55 * * * *' && 'ABC' ||
+ github.event.schedule == '50 * * * *' && 'DEF' ||
+ github.event.schedule == '32 * * * *' && 'GH' ||
+ github.event.schedule == '33 * * * *' && 'IJ' ||
+ github.event.schedule == '45 * * * *' && 'LM' ||
+ github.event.schedule == '36 * * * *' && 'MM' ||
+ github.event.schedule == '40 * * * *' && 'LAST'
+ }} --- abc
 
 # Controls when the workflow will run
 on:
@@ -7,9 +17,9 @@ on:
   workflow_dispatch:
   # Scehduled run
   schedule:
-    - cron:  '30 * * * *'
-    - cron:  '31 * * * *'
-    - cron:  '32 * * * *'
+    - cron:  '40 * * * *'
+    - cron:  '45 * * * *'
+    - cron:  '50 * * * *'
 
 jobs:
   build:
