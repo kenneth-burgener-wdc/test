@@ -15,10 +15,11 @@ runs:
   using: "composite"
   steps:
     - run: |
-        echo "hello id ${{ inputs.RUNNER_ID }} and ${{ inputs.NAME }}."
-        echo "hello id ${MY_VAR} and ${MY_SECRET}."
+        echo "Runner ID: ${{ inputs.RUNNER_ID }}"
+        echo "Name: ${{ inputs.NAME }}"
+        echo "MY_VAR: ${MY_VAR}"
+        echo "MY_SECRET: ${MY_SECRET}"
         if [ "${MY_SECRET}" == "I_AM_A_SECRET" ] ; then echo 'yes' ; else echo 'no' ; fi
+        echo "done."
       shell: bash
-      env:
-        MY_SECRET: ${{ secrets.MY_SECRET }}
-        MY_VAR: ${{ vars.MY_VAR }}
+      # env: # env not needed here?  why?

@@ -36,6 +36,7 @@ jobs:
         id: run-happy
         uses: .github/actions/happy
         with:
+          RUNNER_ID: run-happy
           NAME: hoard
           # MY_SECRET: ${{ secrets.MYSECRET }}
         env:
