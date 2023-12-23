@@ -34,7 +34,7 @@ jobs:
       # Runs a command
       - name: Run happy
         id: run-happy
-        uses: ./.github/actions/happy/
+        uses: .github/actions/happy
         with:
           NAME: hoard
           # MY_SECRET: ${{ secrets.MYSECRET }}
