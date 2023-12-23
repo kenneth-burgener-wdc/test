@@ -16,7 +16,6 @@ jobs:
     #uses: ./.github/actions/happy/
 
     runs-on: [ubuntu-latest]
-    secrets: inherit
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -38,7 +37,11 @@ jobs:
         uses: ./.github/actions/happy/
         with:
           NAME: hoard
+        secrets: inherit
 
       # Runs a command
       - name: Run a command
         run: bash test.sh
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET}}
+          MY_VAR: ${{ vars.MY_VAR}}
