@@ -1,4 +1,5 @@
-name: PR Label run-ci
+name: PR Label build
+run-name: Build by ${{ github.actor }} (branch ${{ inputs.BRANCH }})
 on:
   pull_request:
     types:
@@ -9,13 +10,13 @@ on:
       - releases/**
 
 jobs:
-  l1x:
-    if: "github.event.label.name == 'run-ci'"
-    secrets: inherit
-
-jobs:
   build:
-    runs-on: ubuntu-latest
+    if: github.event.label.name == 'build'
+    # uses: actions/checkout@v3
+    #uses: ./.github/actions/happy/
+
+    runs-on: [ubuntu-latest]
+    #secrets: inherit
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

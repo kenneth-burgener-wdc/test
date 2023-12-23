@@ -1,0 +1,20 @@
+name: Test Happy
+description: Test
+# inputs:
+#   RUNNER_ID:
+#     required: true
+#     description: Actions Runner ID
+#   NC_RESULT:
+#     required: true
+#     description: NC pass/fail
+#   GH_TOKEN:
+#     required: true
+#     description: GitHub access token
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        cd "$WORKSPACE/tools/.github/actions/nc-post-github-labels"
+        PYTHON post_nc.py --id ${{ inputs.RUNNER_ID }} --result ${{ inputs.NC_RESULT }} --org ${{ github.repository_owner }} --token ${{ inputs.GH_TOKEN }}
+      shell: bash
