@@ -19,3 +19,6 @@ runs:
         echo "hello id ${MY_VAR} and ${MY_SECRET}."
         if [ "${MY_SECRET}" == "I_AM_A_SECRET" ] ; then echo 'yes' ; else echo 'no' ; fi
       shell: bash
+      env:
+        MY_SECRET: ${{ secrets.MY_SECRET }}
+        MY_VAR: ${{ vars.MY_VAR }}
