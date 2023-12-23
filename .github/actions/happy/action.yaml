@@ -7,6 +7,9 @@ inputs:
   NAME:
     required: false
     description: Some name
+  # MY_SECRET:
+  #   required: false
+  #   description: Some secret
 
 runs:
   steps:

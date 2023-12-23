@@ -40,5 +40,5 @@ jobs:
       - name: Run a command
         run: bash test.sh
         env:
-          MY_SECRET: ${{ secrets.MY_SECRET}}
-          MY_VAR: ${{ vars.MY_VAR}}
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+          MY_VAR: ${{ vars.MY_VAR }}
