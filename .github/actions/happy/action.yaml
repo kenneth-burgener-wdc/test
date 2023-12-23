@@ -1,0 +1,17 @@
+name: Test Happy
+description: Test
+inputs:
+  RUNNER_ID:
+    required: false
+    description: Actions Runner ID
+  NAME:
+    required: false
+    description: Some name
+
+runs:
+  steps:
+    - run: |
+        echo "hello id ${{ inputs.RUNNER_ID }} and ${{ inputs.NAME }}."
+        echo "hello id ${MY_VAR} and ${MY_SECRET}."
+        if [ "${MY_SECRET}" == "I_AM_A_SECRET" ] ; then echo 'yes' ; else echo 'no' ; fi
+      shell: bash

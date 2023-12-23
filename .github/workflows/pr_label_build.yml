@@ -33,5 +33,12 @@ jobs:
           echo test, and deploy your project.
 
       # Runs a command
+      - name: Run happy
+        id: run-happy
+        uses: ./.github/actions/happy/
+        with:
+          NAME: hoard
+
+      # Runs a command
       - name: Run a command
         run: bash test.sh
