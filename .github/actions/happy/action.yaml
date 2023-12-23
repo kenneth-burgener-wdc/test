@@ -12,6 +12,7 @@ inputs:
   #   description: Some secret
 
 runs:
+  using: "composite"
   steps:
     - run: |
         echo "hello id ${{ inputs.RUNNER_ID }} and ${{ inputs.NAME }}."
