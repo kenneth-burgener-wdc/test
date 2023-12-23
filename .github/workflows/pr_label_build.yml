@@ -16,7 +16,7 @@ jobs:
     #uses: ./.github/actions/happy/
 
     runs-on: [ubuntu-latest]
-    #secrets: inherit
+    secrets: inherit
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
