@@ -16,7 +16,7 @@ jobs:
     - id: set-MATRIX
       run: echo "MATRIX={\"include\":[{\"runson\":[\"CI\",\"MORE\"],\"task\":\"joe\"},{\"runson\":[\"CI\",\"LESS\"],\"task\":\"bob\"}]}" >> $GITHUB_OUTPUT
   jober:
-    needs: job1
+    needs: generate
     runs-on: ${{ matrix.runson }}
     strategy:
       matrix: ${{fromJson(needs.generate.outputs.matrix)}}
