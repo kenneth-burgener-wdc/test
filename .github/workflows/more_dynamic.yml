@@ -14,7 +14,7 @@ jobs:
       MATRIX: ${{ steps.set-MATRIX.outputs.MATRIX }}
     steps:
     - id: set-MATRIX
-      run: echo 'MATRIX=["abc", "def", "ghi"]'' >> $GITHUB_OUTPUT
+      run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
   jober-t:
     needs: generate-t
     #runs-on: ${{ matrix.outputs.MATRIX }}
