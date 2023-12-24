@@ -24,3 +24,28 @@ jobs:
     - run: hostname
     - run: echo ${{ matrix.runson }}
     - run: echo ${{ matrix.task }}
+
+# MATRIX=
+# {
+#   "include": [
+#     {
+#       "runson": [
+#         "CI",
+#         "MORE"
+#       ],
+#       "task": "joe"
+#     },
+#     {
+#       "runson": [
+#         "CI",
+#         "LESS"
+#       ],
+#       "task": "bob"
+#     }
+#   ]
+# }
+
+# Creates 3 jobs:
+# generate
+# jober (CI, MORE, joe) - looking for node with labels CI, MORE
+# jober (CI, LESS, bob) - looking for node with labels CI, LESS
