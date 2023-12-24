@@ -35,7 +35,9 @@ jobs:
         #   ]
         # }' )
         out=$( echo 'MATRIX=["abc", "def", "ghi"]' )
+        echo "trying again..."
         echo "$out"
+        echo "this is what we are doing."
         echo "$out" >> $GITHUB_OUTPUT
   jober-t:
     needs: generate-t
