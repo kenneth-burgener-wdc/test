@@ -65,7 +65,7 @@ jobs:
     steps:
     - id: set-MATRIX
       run: |
-        echo "MATRIX={\"include\":[\"runson\":[ubuntu-latest]"]"}" >> $GITHUB_OUTPUT
+        echo "MATRIX={\"include\":[{\"runson\":[\"ubuntu-latest\"]}]}" >> $GITHUB_OUTPUT
         # echo "MATRIX={\"include\":[{\"runson\":[\"CI\",\"MORE\"],\"task\":\"joe\"},{\"runson\":[\"CI\",\"LESS\"],\"task\":\"bob\"}]}" >> $GITHUB_OUTPUT
   jober:
     needs: generate
