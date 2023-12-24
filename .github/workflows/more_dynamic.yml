@@ -16,24 +16,25 @@ jobs:
     - id: set-MATRIX
       # run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
       run: |
-        out=$( echo 'MATRIX={
-          "include": [
-            {
-              "bannana": [
-                "10",
-                "11",
-                "12"
-              ]
-            },
-            {
-              "apple": [
-                "A",
-                "B",
-                "C",
-              ]
-            }
-          ]
-        }' )
+        # out=$( echo 'MATRIX={
+        #   "include": [
+        #     {
+        #       "bannana": [
+        #         "10",
+        #         "11",
+        #         "12"
+        #       ]
+        #     },
+        #     {
+        #       "apple": [
+        #         "A",
+        #         "B",
+        #         "C",
+        #       ]
+        #     }
+        #   ]
+        # }' )
+        out=$( echo 'MATRIX=["abc", "def", "ghi"]' )
         echo "$out"
         echo "$out" >> $GITHUB_OUTPUT
   jober-t:
