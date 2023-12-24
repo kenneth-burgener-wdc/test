@@ -15,7 +15,25 @@ jobs:
     steps:
     - id: set-MATRIX
       # run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
-      run: echo 'MATRIX=["abc":"do the thing", "def":"do more", "ghi":"do stuff"]' >> $GITHUB_OUTPUT
+      run: |
+        echo 'MATRIX={
+          "include": [
+            {
+              "bannana": [
+                "10",
+                "11",
+                "12"
+              ]
+            },
+            {
+              "apple": [
+                "A",
+                "B",
+                "C",
+              ]
+            }
+          ]
+        }' >> $GITHUB_OUTPUT
   jober-t:
     needs: generate-t
     strategy:
