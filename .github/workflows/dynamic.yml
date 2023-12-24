@@ -21,7 +21,8 @@ jobs:
     outputs:
       MATRIX: ${{ steps.set-MATRIX.outputs.MATRIX }}
     steps:
-    - id: set-MATRIX
+    - name: Build Matrix
+      id: set-MATRIX
       run: echo "MATRIX={\"include\":[{\"runson\":[\"CI\",\"MORE\"],\"task\":\"joe\"},{\"runson\":[\"CI\",\"LESS\"],\"task\":\"bob\"}]}" >> $GITHUB_OUTPUT
   jober:
     needs: generate
