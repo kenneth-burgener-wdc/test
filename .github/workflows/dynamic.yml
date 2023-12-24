@@ -6,6 +6,8 @@ on:
       Go:
         required: false
         type: string
+  workflow_call:
+
 
 jobs:
   generate:
