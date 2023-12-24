@@ -6,6 +6,9 @@ on:
       Go:
         required: false
         type: string
+      POWER:
+        required: false
+        type: string
   workflow_call:
 
 

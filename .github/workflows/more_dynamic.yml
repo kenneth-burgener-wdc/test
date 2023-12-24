@@ -52,3 +52,5 @@ jobs:
         matrix_b: ${{fromJson(needs.generate-t.outputs.matrix_b)}}
       fail-fast: false
     uses: ./.github/workflows/dynamic.yml
+    with:
+      POWER: ${{ matrix.matrix_a }}.${{ matrix.matrix_b }}
