@@ -11,9 +11,11 @@ jobs:
   generate-t:
     runs-on: ubuntu-latest
     outputs:
-      MATRIX: ${{ steps.set-MATRIX.outputs.MATRIX }}
+      MATRIX_A: ${{ steps.set-MATRIX.outputs.MATRIX_A }}
+      MATRIX_B: ${{ steps.set-MATRIX.outputs.MATRIX_B }}
     steps:
-    - id: set-MATRIX
+    - name: Build Matrix
+      id: set-MATRIX
       # run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
       run: |
         # out=$( echo 'MATRIX={
@@ -34,15 +36,19 @@ jobs:
         #     }
         #   ]
         # }' )
-        out=$( echo 'MATRIX=["abc", "def", "ghi"]' )
+        out_a=$( echo 'MATRIX_A=["abc", "def", "ghi"]' )
+        out_b=$( echo 'MATRIX_B=["10", "11", "12"]' )
         echo "trying again..."
-        echo "$out"
+        echo "$out_a"
+        echo "$out_b"
         echo "this is what we are doing."
-        echo "$out" >> $GITHUB_OUTPUT
+        echo "$out_a" >> $GITHUB_OUTPUT
+        echo "$out_b" >> $GITHUB_OUTPUT
   jober-t:
     needs: generate-t
     strategy:
       matrix:
-        something: ${{fromJson(needs.generate-t.outputs.matrix)}}
+        matrix_a: ${{fromJson(needs.generate-t.outputs.matrix_a)}}
+        matrix_b: ${{fromJson(needs.generate-t.outputs.matrix_b)}}
       fail-fast: false
     uses: ./.github/workflows/dynamic.yml
