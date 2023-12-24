@@ -16,7 +16,7 @@ jobs:
     - id: set-MATRIX
       # run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
       run: |
-        out=echo 'MATRIX={
+        out=$( echo 'MATRIX={
           "include": [
             {
               "bannana": [
@@ -33,7 +33,7 @@ jobs:
               ]
             }
           ]
-        }'
+        }' )
         echo "$out"
         echo "$out" >> $GITHUB_OUTPUT
   jober-t:
