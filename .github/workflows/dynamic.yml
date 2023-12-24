@@ -10,7 +10,10 @@ on:
         required: false
         type: string
   workflow_call:
-
+    inputs:
+      POWER:
+        required: false
+        type: string
 
 jobs:
   generate:
