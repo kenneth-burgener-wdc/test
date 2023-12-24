@@ -14,41 +14,12 @@ jobs:
       MATRIX: ${{ steps.set-MATRIX.outputs.MATRIX }}
     steps:
     - id: set-MATRIX
-      run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
+      # run: echo 'MATRIX=["abc", "def", "ghi"]' >> $GITHUB_OUTPUT
+      run: echo 'MATRIX=["abc":"do the thing", "def":"do more", "ghi":"do stuff"]' >> $GITHUB_OUTPUT
   jober-t:
     needs: generate-t
-    #runs-on: ${{ matrix.outputs.MATRIX }}
     strategy:
       matrix:
         something: ${{fromJson(needs.generate-t.outputs.matrix)}}
       fail-fast: false
     uses: ./.github/workflows/dynamic.yml
-    # steps:
-    # - run: hostname
-    # - run: echo ${{ matrix.runson }}
-    # - run: echo ${{ matrix.task }}
-
-# MATRIX=
-# {
-#   "include": [
-#     {
-#       "runson": [
-#         "CI",
-#         "MORE"
-#       ],
-#       "task": "joe"
-#     },
-#     {
-#       "runson": [
-#         "CI",
-#         "LESS"
-#       ],
-#       "task": "bob"
-#     }
-#   ]
-# }
-
-# Creates 3 jobs:
-# generate
-# jober (CI, MORE, joe) - looking for node with labels CI, MORE
-# jober (CI, LESS, bob) - looking for node with labels CI, LESS
