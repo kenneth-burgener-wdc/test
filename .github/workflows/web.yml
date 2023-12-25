@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Say my name
-        run: echo 'hi ${{ inputs.message }}.'
+        run: echo 'hi ${{ inputs.message || github.event.client_payload.message }}.'
 
       - name: Run a command
         run: bash test.sh
