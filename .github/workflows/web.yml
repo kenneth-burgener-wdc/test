@@ -1,0 +1,34 @@
+name: Web
+
+on:
+  workflow_dispatch:
+    inputs:
+      MESSAGE:
+        required: false
+        type: string
+        description: Message
+
+  repository_dispatch:
+
+  workflow_call:
+    inputs:
+      MESSAGE:
+        required: false
+        type: string
+        description: Message
+
+jobs:
+  run:
+    runs-on: [self-hosted, "CI"]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Say my name
+        run: echo 'hi ${{ inputs.message }}.'
+
+      - name: Run a command
+        run: bash test.sh
+        env:
+          MY_SECRET: ${{ secrets.MY_SECRET }}
+          MY_VAR: ${{ vars.MY_VAR }}
